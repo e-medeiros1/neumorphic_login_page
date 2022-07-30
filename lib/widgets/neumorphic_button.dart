@@ -1,6 +1,7 @@
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 
+// ignore: must_be_immutable
 class MyNeumorphicButton extends StatelessWidget {
   bool isLightMode = false;
   Color backgroundColor;
@@ -20,7 +21,6 @@ class MyNeumorphicButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return NeumorphicButton(
         style: NeumorphicStyle(
           border: NeumorphicBorder(
