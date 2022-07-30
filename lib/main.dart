@@ -1,7 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:teste/screens/my_screen.dart';
+import 'package:teste/firebase_options.dart';
+import 'package:teste/screens/main_page.dart';
 
-void main(List<String> args) {
+Future main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.android,
+  );
+
+  
   runApp(const MyApp());
 }
 
@@ -10,9 +18,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MyScreen(),
+      home: MainPage(),
     );
   }
 }

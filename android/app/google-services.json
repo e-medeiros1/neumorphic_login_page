@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "199586417764",
+    "project_id": "login-page-32d04",
+    "storage_bucket": "login-page-32d04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199586417764:android:d390c0095a8a230326e371",
+        "android_client_info": {
+          "package_name": "com.erimedeiros.teste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199586417764-7hjde8b8tk6fhhp1t13rtul2rj1prts2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjINCl6NVvHqQYJVI4hs1H3MbFkYBsuJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199586417764-7hjde8b8tk6fhhp1t13rtul2rj1prts2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

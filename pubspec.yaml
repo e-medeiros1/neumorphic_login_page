@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_neumorphic: ^3.2.0
   flutter_inset_box_shadow: ^1.0.8
+  firebase_core:
+  firebase_auth:
+  validatorless: ^1.2.1
   
 
 dev_dependencies:
