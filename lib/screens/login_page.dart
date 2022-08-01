@@ -1,10 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:teste/widgets/neumorphism_effect.dart';
 import 'package:validatorless/validatorless.dart';
 
+import 'package:teste/widgets/neumorphism_effect.dart';
+
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  final VoidCallback showRegisterPage;
+  const LoginPage({
+    Key? key,
+    required this.showRegisterPage,
+  }) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -77,19 +82,19 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 60,
                 ),
                 Text(
-                  'Olá, bem vindo!',
+                  'Bem vindo de volta!',
                   style: TextStyle(
-                    fontSize: 35,
-                    letterSpacing: 1.5,
-                    // fontWeight: FontWeight.bold,
+                    fontFamily: 'BebasNeue',
+                    fontSize: 40,
+                    letterSpacing: 2,
                     color: ternaryColor,
                   ),
                 ),
                 const SizedBox(
-                  height: 90,
+                  height: 100,
                 ),
                 Center(
                   child: Column(
@@ -101,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                             inset: true,
                             isLightMode: isLightMode,
                             width: size.width * .8,
-                            height: 60,
+                            height: 70,
                             borderRadius: BorderRadius.circular(20),
                             widget: Padding(
                               padding: const EdgeInsets.only(
@@ -115,11 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                                   enabledBorder: InputBorder.none,
                                   focusedBorder: InputBorder.none,
                                 ),
-                                validator: Validatorless.multiple([
-                                  Validatorless.required('E-mail obrigatório'),
-                                  Validatorless.email('E-mail inválido'),
-                                ]),
-                                 
+                               
                               ),
                             ),
                           ),
@@ -134,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                             inset: true,
                             isLightMode: isLightMode,
                             width: size.width * .8,
-                            height: 60,
+                            height: 70,
                             borderRadius: BorderRadius.circular(20),
                             widget: Padding(
                               padding: const EdgeInsets.only(
@@ -150,11 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                                   enabledBorder: InputBorder.none,
                                   focusedBorder: InputBorder.none,
                                 ),
-                                validator: Validatorless.multiple([
-                                  Validatorless.required('Senha obrigatória'),
-                                  Validatorless.min(6,
-                                      'Senha deve conter pelo menos 6 caracteres'),
-                                ]),
+                                
                               ),
                             ),
                           ),
@@ -177,16 +174,51 @@ class _LoginPageState extends State<LoginPage> {
                           widget: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: Center(
-                                child: Text(
-                              'Fazer login',
-                              style: TextStyle(
-                                letterSpacing: 1.1,
-                                fontSize: 15,
-                                color: ternaryColor,
+                              child: Text(
+                                'Fazer login',
+                                style: TextStyle(
+                                  letterSpacing: 1,
+                                  fontSize: 16,
+                                  color: ternaryColor,
+                                ),
                               ),
-                            )),
+                            ),
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Não possui conta?',
+                            style: TextStyle(
+                              letterSpacing: 1,
+                              fontSize: 17,
+                              color: ternaryColor,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          InkWell(
+                            onTap: widget.showRegisterPage,
+                            child: Text(
+                              'Cadastre-se',
+                              style: TextStyle(
+                                letterSpacing: 1,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: ternaryColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30,
                       ),
                     ],
                   ),
