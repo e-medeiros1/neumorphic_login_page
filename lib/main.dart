@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:teste/firebase_options.dart';
-import 'package:teste/screens/main_page.dart';
+import 'package:teste/auth/main_page.dart';
 
 Future main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,7 +9,6 @@ Future main(List<String> args) async {
     options: DefaultFirebaseOptions.android,
   );
 
-  
   runApp(const MyApp());
 }
 
@@ -18,9 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      theme: ThemeData(fontFamily: 'SourceSansPro'),
+      home: const MainPage(),
     );
   }
 }

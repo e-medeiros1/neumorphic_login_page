@@ -30,8 +30,8 @@ class MyNeumorphismEffect extends StatelessWidget {
     const upShadow = Colors.white;
     const downShadow = Color(0xFFA7A9AF);
 
-    const Offset distance = Offset(2, 2);
-    const double blur = 4;
+    const Offset distance = Offset(3, 3);
+    const double blur = 5;
 
     return Container(
       padding: const EdgeInsets.all(0),
