@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:teste/auth/auth_page.dart';
 import 'package:teste/screens/home_page.dart';
 import 'package:teste/screens/login_page.dart';
 
@@ -15,7 +14,9 @@ class MainPage extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
-              child: CircularProgressIndicator(color: Colors.black87,),
+              child: CircularProgressIndicator(
+                color: Colors.black87,
+              ),
             );
           } else if (snapshot.hasData) {
             return const HomePage();
