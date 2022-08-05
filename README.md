@@ -13,8 +13,8 @@
 ### Funcionalidades
 
 - [x] Efeito Neumórfico
-- [x] Create data
-- [x] Read data
+- [x] Create and read data
+- [x] Dark mode
 
 
 <h2> Telas </h2>  
