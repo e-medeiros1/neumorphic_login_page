@@ -1,16 +1,32 @@
-# teste
 
-A new Flutter project.
+<h2 align="center"> Login Page! </br></br> 
 
-## Getting Started
+<img src="https://img.shields.io/badge/dart-C.svg?style=for-the-badge&logo=dart&color=152030">
+<img src="https://img.shields.io/badge/flutter-C.svg?style=for-the-badge&logo=flutter&color=0468D7"> 
+<img src="https://img.shields.io/badge/Visual%20Studio%20Code-%23323330.svg?style=for-the-badge&logo=visual-studio-code&logoColor=FFFFFF&color=2F74C0">   </h2>
 
-This project is a starting point for a Flutter application.
+<h2> Sobre </h2>
+<p >
+ Login page usando firebase e firestore
+</p>  
 
-A few resources to get you started if this is your first Flutter project:
+### Funcionalidades
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [x] Efeito Neumórfico
+- [x] Create and read data
+- [x] Dark mode
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<h2> Telas </h2>  
+<p> Main page </p> 
+<img src="https://user-images.githubusercontent.com/73318684/182975935-2526ec9f-86c3-487e-8d2a-260af9bdc58a.png" width="230" alt="Logo MainPage"/>   
+<p> Result page </p> 
+<img src="https://user-images.githubusercontent.com/73318684/182975939-7b45e952-8383-431c-b62e-33815d2168d5.png" width="230" alt="Logo FinalPage"/>   
+
+
+
+   
+   >Esse projeto foi desenvolvido ❤️ por **[@erimedeiros](https://www.linkedin.com/in/erimedeiros/)**,<br> 
+
+   ---
+  
