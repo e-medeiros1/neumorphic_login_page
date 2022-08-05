@@ -1,8 +1,9 @@
+// ignore_for_file: constant_identifier_names
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:teste/screens/home_page.dart';
 import 'package:teste/widgets/neumorphism_effect.dart';
-
 import '../widgets/neumorphic_field.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,15 +28,10 @@ class _LoginPageState extends State<LoginPage> {
 
   AuthMode _authMode = AuthMode.LoginMode;
 
-  Map<String, String> _authData = {'email': '', 'password': ''};
-
-  //Form key para obter as informações do formulário
-  final _formKey = GlobalKey<FormState>();
-
   bool _isLogin() => _authMode == AuthMode.LoginMode;
   bool _isSignup() => _authMode == AuthMode.SignupMode;
 
-//TextButton para mudar pra tela de cadastro
+//Muda enum
   void _switchAuthMode() {
     setState(() {
       if (_isLogin()) {
@@ -46,7 +42,9 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  //Loga
   FirebaseAuth currentUser = FirebaseAuth.instance;
+
   Future signIn() async {
     await currentUser.signInWithEmailAndPassword(
       email: _emailController.text.trim(),
@@ -54,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  //Cria conta
   Future signUp() async {
     if (passwordConfimed()) {
       await currentUser.createUserWithEmailAndPassword(
@@ -61,16 +60,30 @@ class _LoginPageState extends State<LoginPage> {
         password: _passwordController.text.trim(),
       );
 
-      addUsername(_usernameController.text.trim());
+      final user = Users(
+        email: _emailController.text.trim(),
+        username: _usernameController.text.trim(),
+      );
+
+      createUser(user);
     }
   }
 
-  Future addUsername(String username) async {
-    await FirebaseFirestore.instance.collection('users').add({
-      'username': username,
-    });
+  Future createUser(Users? user) async {
+    final docUser = FirebaseFirestore.instance
+        .collection('users')
+        .doc('cKbnGh9mkGaIlhCpl9Hn');
+
+    user!.id = docUser.id;
+
+    final json = user.toJson();
+
+    await docUser.set(json);
   }
 
+  //Adiciona nome e email de usuário
+
+  //Confirma se senha é igual a confirma senha
   bool passwordConfimed() {
     if (_passwordController.text.trim() ==
         _confirmPasswordController.text.trim()) {
@@ -78,59 +91,6 @@ class _LoginPageState extends State<LoginPage> {
     } else {
       return false;
     }
-  }
-
-  //Método para enviar as informações pro BD
-  Future<void> _submit() async {
-    final isValid = _formKey.currentState?.validate() ?? false;
-
-    if (!isValid) {
-      return;
-    }
-
-    setState(() {});
-
-    _formKey.currentState?.save();
-
-    _showErrorDialog(String msg) {
-      showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: const Text(
-            'Ocorreu um erro',
-            style: TextStyle(color: Colors.black),
-          ),
-          content: Text(
-            msg,
-            style: const TextStyle(color: Colors.black),
-          ),
-          actions: [
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                  setState(() {});
-                },
-                child: const Text('OK'))
-          ],
-        ),
-      );
-    }
-
-    try {
-      if (_isLogin()) {
-        //Login
-        signIn();
-      } else {
-        //Signup
-        signUp();
-      }
-    } on Exception catch (error) {
-      _showErrorDialog(error.toString());
-    } catch (error) {
-      _showErrorDialog('Ocorreu um erro inesperado');
-    }
-
-    setState(() {});
   }
 
   @override
@@ -204,11 +164,12 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   if (_isSignup())
                     NeumorphicField(
-                        isLightMode: isLightMode,
-                        controller: _usernameController,
-                        color: ternaryColor,
-                        obscureText: false,
-                        hintText: 'Nome de usuário'),
+                      isLightMode: isLightMode,
+                      controller: _usernameController,
+                      color: ternaryColor,
+                      obscureText: false,
+                      hintText: 'Nome de usuário',
+                    ),
                   const SizedBox(
                     height: 15,
                   ),
